@@ -1,0 +1,11 @@
+<h2>{{vm.questionText}}</h2>
+
+<form name="multiSelect">
+    <md-checkbox ng-repeat="answer in vm.responses" ng-model="vm.answer[$index]" ng-change="vm.selectCheckbox(answer.Id, vm.answer[$index])" aria-label="answer.Content">
+        {{answer.Content}}
+    </md-checkbox>
+</form>
+
+<md-button ng-if="vm.currentState !== vm.surveyLength - 1" ng-disabled="multiSelect.$pristine || !vm.userResponse.answer.length" ng-click="vm.goToNextQuestion()" class="md-raised md-primary">
+    <md-icon md-font-icon="android" alt="android "></md-icon> Next Question
+</md-button>

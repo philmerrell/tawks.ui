@@ -1,0 +1,14 @@
+<h2>{{vm.questionText}}</h2>
+
+<form name="multiChoice">
+    <md-radio-group ng-model="vm.answer" class="md-primary">
+        <md-radio-button ng-repeat="answer in vm.responses" value="{{answer.Id}}">{{answer.Content}}</md-radio-button>
+    </md-radio-group>
+</form>
+<md-button ng-if="!vm.lastQuestion()" ng-disabled="multiChoice.$pristine" ng-click="vm.selectRadio(vm.answer)" class="md-raised md-primary">
+    Next Question
+</md-button>
+
+<md-button ng-if="vm.lastQuestion()" ng-click="vm.saveSurvey()" class="md-raised md-accent">
+    Submit
+</md-button>
