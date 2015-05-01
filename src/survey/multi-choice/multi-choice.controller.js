@@ -34,19 +34,15 @@ class MultiSelectCtrl {
   }
 
   saveSurvey(ev) {
-
-      // Appending dialog to document.body to cover sidenav in docs app
-      // Modal dialogs should fully cover application
-      // to prevent interaction outside of dialog
-      this.$mdDialog.show(
-        this.$mdDialog.alert()
-          .parent(angular.element(document.body))
-          .title('Thank You')
-          .content('You can close your browser')
-          .ariaLabel('Alert Dialog Demo')
-          .ok('Got it!')
-          .targetEvent(ev)
-      );
+    this.$mdDialog.show(
+      this.$mdDialog.alert()
+        .parent(angular.element(document.body))
+        .title('Thank You')
+        .content('Your answers have been submitted. You can close your browser.')
+        .ariaLabel('Alert Dialog Demo')
+        .ok('Okay')
+        .targetEvent(ev)
+    );
   }
 
 }

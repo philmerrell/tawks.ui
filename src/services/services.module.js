@@ -1,5 +1,5 @@
 import SurveyService from '../survey/survey.service';
 
 angular
-  .module('services', [])
+  .module('app.services', [])
   .service('SurveyService', SurveyService);

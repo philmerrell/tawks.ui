@@ -5,9 +5,9 @@ import 'angular-material/angular-material.css!';
 import 'ui-router';
 
 var core = angular
-  .module('core', [
+  .module('app.core', [
     /* Angular Modules */
-    //'ngMaterial',
+    'ngMaterial',
 
     /* Third Party */
     'ui.router'

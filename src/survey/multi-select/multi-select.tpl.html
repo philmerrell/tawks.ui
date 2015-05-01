@@ -1,5 +1,4 @@
 <h2>{{vm.questionText}}</h2>
-
 <form name="multiSelect">
     <md-checkbox ng-repeat="answer in vm.responses" ng-model="vm.answer[$index]" ng-change="vm.selectCheckbox(answer.Id, vm.answer[$index])" aria-label="answer.Content">
         {{answer.Content}}

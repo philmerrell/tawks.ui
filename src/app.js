@@ -6,7 +6,7 @@ import 'ui-router';
 import 'angular-material';
 
 angular
-  .module('app', ['survey', 'core', 'services', 'ui.router', 'ngMaterial'])
+  .module('app', ['app.core', 'app.services', 'app.survey'])
   .controller('AppCtrl', AppCtrl)
   .config(function() {
 
