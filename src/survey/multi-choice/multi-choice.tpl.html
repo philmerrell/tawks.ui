@@ -9,6 +9,6 @@
     Next Question
 </md-button>
 
-<md-button ng-if="vm.lastQuestion()" ng-click="vm.saveSurvey()" class="md-raised md-accent">
+<md-button ng-if="vm.lastQuestion()" ng-disabled="multiChoice.$pristine" ng-click="vm.saveSurvey()" class="md-raised md-accent">
     Submit
 </md-button>

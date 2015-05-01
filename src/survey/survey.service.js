@@ -63,8 +63,8 @@ var SurveyService = function ($http, $q, $state, runtimeStates) {
             url: 'survey/'+index.toString(),
             views: {
               "main": {
-                templateUrl: './src/survey/multi-choice/multi-choice.tpl.html'
-                //controller: 'MultiChoiceCtrl as vm'
+                templateUrl: './src/survey/multi-choice/multi-choice.tpl.html',
+                controller: 'MultiChoiceCtrl as vm'
               }
             },
             data: {
@@ -77,8 +77,8 @@ var SurveyService = function ($http, $q, $state, runtimeStates) {
             url: 'survey/'+index.toString(),
             views: {
               "main": {
-                templateUrl: './src/survey/staggered-multi-select/staggered-multi-select.tpl.html'
-                //controller: 'StaggeredMultiSelectCtrl as vm'
+                templateUrl: './src/survey/multi-select/multi-select.tpl.html',
+                controller: 'MultiSelectCtrl as vm'
               }
             },
             data: {
