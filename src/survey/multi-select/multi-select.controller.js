@@ -1,21 +1,8 @@
-class MultiSelectCtrl {
-  constructor($state, SurveyService) {
-    let questionObj = $state.current.data.question;
+import SurveyCtrl from '../survey.controller';
 
-    this.userResponse = {
-      questionId: questionObj.Id,
-      answer: []
-    };
-
-    this.questionId = questionObj.Id;
-    this.currentState = parseInt($state.current.name, 10);
-    this.surveyLength = SurveyService.getSurveyLength();
-    this.questionText = questionObj.Content;
-    this.responses = questionObj.Responses;
-
-    this.$state = $state;
-    this.SurveyService = SurveyService;
-
+class MultiSelectCtrl extends SurveyCtrl {
+  constructor($mdDialog, $state, SurveyService) {
+    super($mdDialog, $state, SurveyService);
   }
 
   selectCheckbox(id, value) {
@@ -30,23 +17,6 @@ class MultiSelectCtrl {
       this.userResponse.answer.splice(index, 1);
     }
   }
-
-  lastQuestion() {
-    if(this.currentState !== this.surveyLength - 1) {
-      return false;
-    } else {
-      return true;
-    }
-
-  }
-
-  goToNextQuestion() {
-    this.SurveyService.addSurveyResponse(this.userResponse, this.currentState);
-    console.log(this.SurveyService.getSurveyResponses());
-    var state = this.currentState + 1;
-    this.$state.go(state.toString());
-  }
-
 }
 
 export default MultiSelectCtrl

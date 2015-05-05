@@ -1,50 +1,20 @@
+import SurveyCtrl from '../survey.controller';
 
-
-class MultiSelectCtrl {
+class MultiSelectCtrl extends SurveyCtrl {
   constructor($mdDialog, $state, SurveyService) {
-    let questionObj = $state.current.data.question;
+    super($mdDialog, $state, SurveyService);
 
-    this.userResponse = {
-      questionId: questionObj.Id,
-      answer: []
+  }
+
+  selectRadio(id) {
+    var response = {
+      answerId: id
     };
 
-    this.questionId = questionObj.Id;
-    this.currentState = parseInt($state.current.name, 10);
-    this.surveyLength = SurveyService.getSurveyLength();
-    this.questionText = questionObj.Content;
-    this.responses = questionObj.Responses;
-    this.$mdDialog = $mdDialog;
+    this.userResponse.answer.push(response);
+
+    this.goToNextQuestion();
   }
-
-  lastQuestion() {
-    if(this.currentState !== this.surveyLength - 1) {
-      return false;
-    } else {
-      return true;
-    }
-
-  }
-
-  goToNextQuestion() {
-    this.SurveyService.addSurveyResponse(this.userResponse, this.currentState);
-    console.log(this.SurveyService.getSurveyResponses());
-    var state = this.currentState + 1;
-    this.$state.go(state.toString());
-  }
-
-  saveSurvey(ev) {
-    this.$mdDialog.show(
-      this.$mdDialog.alert()
-        .parent(angular.element(document.body))
-        .title('Thank You')
-        .content('Your answers have been submitted. You can close your browser.')
-        .ariaLabel('Alert Dialog Demo')
-        .ok('Okay')
-        .targetEvent(ev)
-    );
-  }
-
 }
 
 export default MultiSelectCtrl
